@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <section class="site-wrapper">
+        <section class="content">
+            <div class="sliders">
+                <div class="slider-content">
+                    <div class="slider">
+                        <label>Blur:</label>
+                        <input type="range" min="0" max="3" value="0" step="1" onchange="updateFilters()" data-filter="blur" data-scale="px">
+                    </div>
+                    <div class="slider">
+                        <label>Contrast:</label>
+                        <input type="range" min="0" max="200" value="100"  step="1" onchange="updateFilters()" data-filter="contrast" data-scale="%">
+                    </div>
+                    <div class="slider">
+                        <label>Hue Rotation:</label>
+                        <input type="range" min="0" max="270" value="0"  step="1" onchange="updateFilters()" data-filter="hue-rotate" data-scale="deg">
+                    </div>
+                    <div class="slider">
+                        <label>GreyScale:</label>
+                        <input type="range" min="0" max="100" value="0"  step="1" onchange="updateFilters()" data-filter="grayscale" data-scale="%">
+                    </div>
+                    <div class="slider">
+                        <label>Sepia:</label>
+                        <input type="range"  min="0" max="100"  value="0" step="1" onchange="updateFilters()" data-filter="sepia" data-scale="%">
+                    </div>
+                </div>
+            </div>
+            <div class="image">
+                <img src="img/img2.jpg" alt="" class="manipulate">
+            </div>
+        </section>
+    </section>
+    <script src="js/app.js"></script>
+</body>
+</html>
