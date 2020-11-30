@@ -8,35 +8,45 @@
 </head>
 <body>
     <section class="site-wrapper">
-        <section class="content">
-            <div class="sliders">
-                <div class="slider-content">
-                    <div class="slider">
-                        <label>Blur:</label>
-                        <input type="range" min="0" max="3" value="0" step="1" onchange="updateFilters()" data-filter="blur" data-scale="px">
-                    </div>
-                    <div class="slider">
-                        <label>Contrast:</label>
-                        <input type="range" min="0" max="200" value="100"  step="1" onchange="updateFilters()" data-filter="contrast" data-scale="%">
-                    </div>
-                    <div class="slider">
-                        <label>Hue Rotation:</label>
-                        <input type="range" min="0" max="270" value="0"  step="1" onchange="updateFilters()" data-filter="hue-rotate" data-scale="deg">
-                    </div>
-                    <div class="slider">
-                        <label>GreyScale:</label>
-                        <input type="range" min="0" max="100" value="0"  step="1" onchange="updateFilters()" data-filter="grayscale" data-scale="%">
-                    </div>
-                    <div class="slider">
-                        <label>Sepia:</label>
-                        <input type="range"  min="0" max="100"  value="0" step="1" onchange="updateFilters()" data-filter="sepia" data-scale="%">
-                    </div>
-                </div>
+       <section id="wrapper" class="skewed">
+        
+           <div class="layer top">
             </div>
-            <div class="image">
-                <img src="img/img2.jpg" alt="" class="manipulate">
+
+           <div class="layer bottom manipulate">
             </div>
-        </section>
+
+            <div class="handle"></div>
+       </section>
+
+       <div class="sliders">
+        <div class="slider-content">
+            <h2>Filters</h2>
+            <div class="slider">
+                <label>Blur:</label>
+                <input type="range" min="0" max="3" value="0" step="1" onchange="updateFilters()" data-filter="blur" data-scale="px">
+            </div>
+            <div class="slider">
+                <label>Contrast:</label>
+                <input type="range" min="0" max="200" value="100"  step="1" onchange="updateFilters()" data-filter="contrast" data-scale="%">
+            </div>
+            <div class="slider">
+                <label>Hue Rotation:</label>
+                <input type="range" min="0" max="270" value="0"  step="1" onchange="updateFilters()" data-filter="hue-rotate" data-scale="deg">
+            </div>
+            <div class="slider">
+                <label>GreyScale:</label>
+                <input type="range" min="0" max="100" value="0"  step="1" onchange="updateFilters()" data-filter="grayscale" data-scale="%">
+            </div>
+            <div class="slider">
+                <label>Sepia:</label>
+                <input type="range"  min="0" max="100"  value="0" step="1" onchange="updateFilters()" data-filter="sepia" data-scale="%">
+            </div>
+        </div>
+    </div>
+    <section class="preset">
+        <button class="preset-btn">+</button>
+    </section>
     </section>
     <script src="js/app.js"></script>
 </body>
