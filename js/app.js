@@ -1,6 +1,9 @@
 var manipulated = document.querySelector('.manipulate');
 var filterControls = document.querySelectorAll('input[type=range]');
-var presetBtn = document.querySelector('.preset-btn');
+var presetBtn = document.querySelector('.preset-Btn');
+var leftBtn = document.querySelector('leftArr');
+var rightBtn = document.querySelector('rightBtn');
+var site = document.querySelector('.site-wrapper');
 
 presetBtn.addEventListener('click', createNewFilters)
 /*
@@ -27,6 +30,10 @@ document.addEventListener("DOMContentLoaded", ()=> {
 */
 //console.log(filterControls) outputs the nodeList 
 
+function slider(){
+    
+}
+
 function updateFilters(){
     let computerFilters = '';
     filterControls.forEach((item) => {
@@ -39,23 +46,17 @@ function updateFilters(){
 }
 
 function createNewFilters(){
+    let presetContainer = document.querySelector('.preset-container');
     let html = '';
-    let preset = document.querySelector('.preset').parentElement.presetBtn;
-
-
+    let preset = document.createElement('span');
     html += `
-    <div class="presetFilters">
-        <div class="inner-content">
-            <button class="filterOption">Rose</button>
-            <button class="filterOption">Rose</button>
-            <button class="filterOption">Rose</button>
-            <button class="filterOption">Rose</button>
-        </div>
-    
-    </div>
+        <button class="filterOption">Rose</button>
+        <button class="filterOption">Rose</button>
+        <button class="filterOption">Rose</button>
+        <button class="filterOption">Rose</button>
     `;
-    console.log(html);
-    preset.insertAdjacentElement('beforeend', html);
+    preset.innerHTML = html;
+    presetContainer.insertAdjacentElement('beforeend', preset);
 
 }
 
