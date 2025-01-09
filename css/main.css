@@ -117,6 +117,7 @@ figure img
 .active 
 {
     display: block;
+    filter: grayscale(0);    
 }
 
 

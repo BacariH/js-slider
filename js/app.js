@@ -31,6 +31,10 @@ document.addEventListener("DOMContentLoaded", ()=> {
 //console.log(filterControls) outputs the nodeList 
 
 function slider(){
+    let grayscale = document.getElementById("grayscale").value;
+    let imgSelected = document.getElementById("active");
+
+    imgSelected.style.filter = `grayscale(${grayscale})`;
     
 }
 

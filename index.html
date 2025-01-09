@@ -10,13 +10,12 @@
     <section class="site-wrapper">
         <header class="main-header">
             <nav class="main-nav">
-                <h4>Download Now!</h4>
                 <button class="download" onclick="">Download</button>
             </nav>
         </header>
         <main class="site-content">
             <section class="images">
-                <div class="image-container active">
+                <div class="image-container active" id="active">
                     <h2 class="image-container-text">Before:</h2>
                     <figure>
                         <img src="img/img2.jpg" alt="a picture from pexels.com">
@@ -39,19 +38,19 @@
                         <input type="range" id="blur" onchange="">
                     </div>
                     <div>
-                        <label for="blur">Blur:</label>
+                        <label for="grayscale">Grayscale:</label>
+                        <input type="range" min="0" max="100" step="10" id="grayscale" onchange="slider()">
+                    </div>
+                    <div>
+                        <label for="blur">Saturation:</label>
                         <input type="range" id="blur" onchange="">
                     </div>
                     <div>
-                        <label for="blur">Blur:</label>
+                        <label for="blur">Contrast:</label>
                         <input type="range" id="blur" onchange="">
                     </div>
                     <div>
-                        <label for="blur">Blur:</label>
-                        <input type="range" id="blur" onchange="">
-                    </div>
-                    <div>
-                        <label for="blur">Blur:</label>
+                        <label for="blur">Vignette:</label>
                         <input type="range" id="blur" onchange="">
                     </div>
 
