@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Photo Manipulator</title>
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+    <!-- Maybe use tail wind for an easier styling for a single page?? -->
 </head>
 <body>
     <section class="site-wrapper">
@@ -13,51 +15,90 @@
                 <button class="download" onclick="">Download</button>
             </nav>
         </header>
+        <input 
+            type="file"
+            name="photo"
+            accept="image/*"
+            onchange="handleImageUpload(event)"
+        >
         <main class="site-content">
             <section class="images">
                 <div class="image-container active" id="active">
-                    <h2 class="image-container-text">Before:</h2>
+                    <!-- <h2 class="image-container-text"></h2> -->
                     <figure>
-                        <img src="img/img2.jpg" alt="a picture from pexels.com">
+                        <img id="preview">
                     </figure>
                 </div>
-                <div class="image-container">
-                    <h3 class="image-container-text">After:</h3>
-                    <figure>
-                        <img src="img/img2.jpg" alt="a picture from pexels.com" class="manipulate">
-                    </figure>
-                </div>
-                <span class="leftArr" onclick="">&#8592;</span>
-                <span class="rightArr" onclick="">&#8594;</span>
             </section>
-            <section class="sliders">
-                <div class="slider-content">
+            <!-- TODO: Update filter settings to have at least some basic functionality other than grayscale -->
+            <section class="sliders" >
+                <div class="slider-content" hx-target="#active">
                     <h2 class="slider-header">Filters</h2>
                     <div>
                         <label for="blur">Blur:</label>
-                        <input type="range" id="blur" onchange="">
+                        <input 
+                            type="range" 
+                            id="blur" 
+                            min="0"
+                            max="200"
+                            value="100"
+                            step="10"
+                            onchange="">
                     </div>
                     <div>
                         <label for="grayscale">Grayscale:</label>
-                        <input type="range" min="0" max="100" step="10" id="grayscale" onchange="slider()">
+                        <input 
+                            type="range" 
+                            min="0" 
+                            max="200"
+                            value="100"
+                            step="10" 
+                            id="grayscale"
+                            onchange="slider()"
+                        >
                     </div>
                     <div>
-                        <label for="blur">Saturation:</label>
-                        <input type="range" id="blur" onchange="">
+                        <label for="saturation">Saturation:</label>
+                        <input 
+                            type="range" 
+                            min="0" 
+                            max="200"
+                            value="100"
+                            step="10" 
+                            id="saturation"
+                            onchange=""
+                        >
                     </div>
                     <div>
-                        <label for="blur">Contrast:</label>
-                        <input type="range" id="blur" onchange="">
+                        <label for="contrast">Contrast:</label>
+                        <input 
+                            type="range" 
+                            min="0" 
+                            max="200"
+                            value="100"
+                            step="10" 
+                            id="contrast"
+                            onchange=""
+                        >
                     </div>
                     <div>
-                        <label for="blur">Vignette:</label>
-                        <input type="range" id="blur" onchange="">
+                        <label for="vingette">Vignette:</label>
+                        <input 
+                            type="range" 
+                            min="0" 
+                            max="200"
+                            value="100"
+                            step="10" 
+                            id="vingette"
+                            onchange=""
+                        >
                     </div>
 
-                    <button class="reset" onclick="">Reset</button>
+                    <button class="reset" onclick="resetFilters()">Reset</button>
                 </div>
             </section>
             <section class="presets">
+                <!-- Here will be where presets will be -->
                 <div class="preset-container">
                     <button onclick="" class="preset-Btn">+</button>
                 </div>

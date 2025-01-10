@@ -6,36 +6,33 @@ var rightBtn = document.querySelector('rightBtn');
 var site = document.querySelector('.site-wrapper');
 
 presetBtn.addEventListener('click', createNewFilters)
-/*
-document.addEventListener("DOMContentLoaded", ()=> {
-    let wrapper = document.getElementById('wrapper');
-    let topLayer = wrapper.querySelector('.top');
-    let handle = wrapper.querySelector('.handle');
-    let skew = 0;
-    let delta = 0;
 
 
-    if(wrapper.className.indexOf('skewed') != -1){
-        skew = 1000;
+function handleImageUpload(event){
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    
+    reader.onload = function(e) {
+        const preview = document.getElementById('preview');
+        preview.src = e.target.result;
+        preview.style.display = 'block';
     }
-    
-    wrapper.addEventListener('mouseover', (e) => {
-        delta = (e.clientX - window.innerWidth / 2) * 0.5;
-    
-        handle.style.left = e.clientX + delta + 'px';
 
-        topLayer.style.width = e.clientX + skew + delta + 'px';
-    });
-})
-*/
-//console.log(filterControls) outputs the nodeList 
+    reader.readAsDataURL(file);
+
+}
 
 function slider(){
     let grayscale = document.getElementById("grayscale").value;
     let imgSelected = document.getElementById("active");
 
     imgSelected.style.filter = `grayscale(${grayscale})`;
-    
+}
+
+function resetFilters(){
+    //TODO: need this function on load of the image so no filter settings persist
+    let imgSelected = document.getElementById("active");
+    imgSelected.style.filter = `grayscale(${0})`;
 }
 
 function updateFilters(){
@@ -49,6 +46,7 @@ function updateFilters(){
     
 }
 
+//TODO: Edit these buttons to correspond with 'default' filter features. 
 function createNewFilters(){
     let presetContainer = document.querySelector('.preset-container');
     let html = '';
