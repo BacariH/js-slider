@@ -12,17 +12,27 @@ function handleImageUpload(event){
     const file = event.target.files[0];
     const reader = new FileReader();
     
+    
     reader.onload = function(e) {
         const preview = document.getElementById('preview');
         preview.src = e.target.result;
         preview.style.display = 'block';
     }
-
+    //TODO: simplify this function to make the code neater
+    reader.onloadend = () => {
+        resetFilters();
+        const anchor = document.createElement('a');
+        anchor.innerText = "Download";
+        anchor.className = 'download';
+        document.getElementById('nav').appendChild(anchor);
+    }
     reader.readAsDataURL(file);
-
 }
 
+// TODO: Add download functionality for user to retrieve the img they have edited
+
 function slider(){
+    // TODO: add more slider functionality 
     let grayscale = document.getElementById("grayscale").value;
     let imgSelected = document.getElementById("active");
 
@@ -34,6 +44,7 @@ function resetFilters(){
     let imgSelected = document.getElementById("active");
     imgSelected.style.filter = `grayscale(${0})`;
 }
+
 
 function updateFilters(){
     let computerFilters = '';

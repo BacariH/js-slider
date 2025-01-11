@@ -52,7 +52,13 @@ figure img
     height: 750px;
 }
 
-
+.download
+{
+    border: 1px solid;
+    padding: 5px;
+    background-color: crimson;
+    cursor: pointer;
+}
 
 .leftArr,
 .rightArr
