@@ -11,22 +11,35 @@ presetBtn.addEventListener('click', createNewFilters)
 function handleImageUpload(event){
     const file = event.target.files[0];
     const reader = new FileReader();
+    const preview = document.getElementById('preview');
     
     
     reader.onload = function(e) {
-        const preview = document.getElementById('preview');
         preview.src = e.target.result;
         preview.style.display = 'block';
+        
     }
     //TODO: simplify this function to make the code neater
     reader.onloadend = () => {
         resetFilters();
-        const anchor = document.createElement('a');
-        anchor.innerText = "Download";
-        anchor.className = 'download';
-        document.getElementById('nav').appendChild(anchor);
+        if(HTMLAnchorElement.length <= 1){
+            const anchor = document.createElement('a');
+            anchor.innerText = "Download";
+            anchor.className = 'download';
+            anchor.setAttribute('onclick', 'downloadImage()');
+            document.getElementById('nav').appendChild(anchor);
+
+        }
     }
+
     reader.readAsDataURL(file);
+}
+
+function downloadImage(){
+    const anchor = document.getElementsByTagName('a')[0];
+    anchor.href = preview.src;
+    anchor.download = 'example.jpg';
+    anchor.click();
 }
 
 // TODO: Add download functionality for user to retrieve the img they have edited
